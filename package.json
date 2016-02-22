@@ -1,0 +1,61 @@
+{
+  "name": "update-sections",
+  "description": "Easily prepend, append, inject or replace 'sections' in a markdown string.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/update-sections",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/update-sections",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/update-sections/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "sections": "^0.1.2"
+  },
+  "devDependencies": {
+    "gulp-format-md": "*",
+    "mocha": "*"
+  },
+  "keywords": [
+    "append",
+    "content",
+    "heading",
+    "inject",
+    "markdown",
+    "md",
+    "prepend",
+    "section",
+    "sections",
+    "snippet"
+  ],
+  "lintDeps": {
+    "ignore": []
+  },
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "reflinks": [
+      "verb"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
+}
