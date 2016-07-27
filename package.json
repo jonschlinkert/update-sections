@@ -22,11 +22,11 @@
     "test": "mocha"
   },
   "dependencies": {
-    "sections": "^0.1.2"
+    "sections": "^0.1.8"
   },
   "devDependencies": {
-    "gulp-format-md": "*",
-    "mocha": "*"
+    "gulp-format-md": "^0.1.9",
+    "mocha": "^2.5.3"
   },
   "keywords": [
     "append",
