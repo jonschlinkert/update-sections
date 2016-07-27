@@ -29,7 +29,7 @@ var sections = require('sections');
  * @api public
  */
 
-module.exports = function update(contents, heading, snippet, placement) {
+module.exports = function update(contents, heading, snippet, placement, options) {
   assert.equal(typeof contents, 'string', 'expected contents to be a string');
   assert.equal(typeof heading, 'string', 'expected heading to be a string');
   assert.equal(typeof snippet, 'string', 'expected snippet to be a string');
@@ -39,7 +39,7 @@ module.exports = function update(contents, heading, snippet, placement) {
     var emit = sections.emit;
     var content = '';
 
-    switch (match(heading, section.title, placement)) {
+    switch (match(heading, section.title, placement, options)) {
       case 'inner':
       case 'inside':
       case 'between':
@@ -66,11 +66,34 @@ module.exports = function update(contents, heading, snippet, placement) {
       }
     }
   });
-}
+};
 
-function match(title, heading, placement) {
-  var re = new RegExp(title, 'i');
-  if (re.test(heading)) {
+function match(title, heading, placement, options) {
+  options = options || {};
+  var str = title;
+
+  if (options.match instanceof RegExp) {
+    if (options.match.test(heading.replace(/^[#\s]+/, ''))) {
+      return placement;
+    } else {
+      return null;
+    }
+  }
+
+  if (typeof options.match === 'function') {
+    if (options.match(heading.replace(/^[#\s]+/, ''))) {
+      return placement;
+    } else {
+      return null;
+    }
+  }
+
+  if (typeof options.match === 'string') {
+    str = options.match;
+  }
+
+  var re = new RegExp('^' + str + '$', 'i');
+  if (re.test(heading) || str === heading) {
     return placement;
   }
 }

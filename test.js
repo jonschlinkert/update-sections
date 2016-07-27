@@ -52,4 +52,27 @@ describe('update-sections', function() {
       cb();
     }
   });
+
+  it('should match headings with an `options.match` function', function() {
+    var res = update('foo\n# one\nabc\n# two\nthree', 'bar', 'baz', 'after', {
+      match: function(title) {
+        return title === 'one';
+      }
+    });
+    assert.equal(res, 'foo\n# one\n\nabc\n\nbaz\n\n# two\nthree');
+  });
+
+  it('should match headings with an `options.match` string', function() {
+    var res = update('foo\n# one-a\nxyz\n# one\nabc\n# two\nthree', 'bar', 'baz', 'after', {
+      match: 'one'
+    });
+    assert.equal(res, 'foo\n# one-a\nxyz\n# one\n\nabc\n\nbaz\n\n# two\nthree');
+  });
+
+  it('should match headings with an `options.match` regex', function() {
+    var res = update('foo\n# one-a\nxyz\n# one\nabc\n# two\nthree', 'bar', 'baz', 'after', {
+      match: /one$/
+    });
+    assert.equal(res, 'foo\n# one-a\nxyz\n# one\n\nabc\n\nbaz\n\n# two\nthree');
+  });
 });
