@@ -10,7 +10,9 @@
   },
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "LICENSE",
+    "README.md"
   ],
   "main": "index.js",
   "engines": {
@@ -29,14 +31,26 @@
   "keywords": [
     "append",
     "content",
+    "fix",
     "heading",
     "inject",
+    "lint",
+    "linter",
+    "maintain",
     "markdown",
     "md",
+    "plugin",
+    "plugins",
     "prepend",
     "section",
     "sections",
-    "snippet"
+    "snippet",
+    "up-to-date",
+    "update",
+    "update-plugin",
+    "update-updater",
+    "updateplugin",
+    "updater"
   ],
   "lintDeps": {
     "ignore": []
