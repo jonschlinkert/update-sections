@@ -68,7 +68,7 @@ module.exports = function update(contents, heading, snippet, placement) {
   });
 }
 
-function match(heading, title, placement) {
+function match(title, heading, placement) {
   var re = new RegExp(title, 'i');
   if (re.test(heading)) {
     return placement;
